@@ -1,0 +1,8 @@
+javac -cp .:'/tmp/hadoop-3.0.0/share/hadoop/common/hadoop-common-3.0.0.jar':'/tmp/hadoop-3.0.0/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.0.0.jar' '/tmp/Filter.java' 
+//compile
+
+jar -cf job.p *.class
+//make jar
+
+ '/tmp/hadoop-3.0.0/bin/hadoop' jar '/tmp/job.p' Filter file:///etc/passwd file:///tmp/output.txt root
+// seraching word "root"
