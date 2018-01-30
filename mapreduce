@@ -25,12 +25,14 @@ public class Filter {
 		
 		Configuration conf = new Configuration();
 
+		conf.set("filtervalue", args[2]);
+
 
 		Job job = Job.getInstance(conf, "filter");
 		
 		job.setJarByClass(Filter.class);
 
-		//job.setMapperClass(MyMapper.class);
+		job.setMapperClass(FilterMapper.class);
 
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
